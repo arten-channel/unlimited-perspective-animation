@@ -1,0 +1,140 @@
+body {
+    background: #575757;
+    display: flex;
+    overflow: hidden;
+    height: 100vh;
+    margin: 0;
+}
+
+main {
+    width: 20em;
+    height: 20em;
+    border: 2px solid blue;
+    overflow: hidden;
+    perspective: 5em;
+    perspective-origin: 50% 50%;
+    position: relative;
+    animation: po 6s ease-in-out infinite;
+    margin: auto;
+    transform: scale(6);
+}
+
+@keyframes po {
+    from, to {
+        perspective-origin: 33% 40%;
+    }
+
+    25% {
+        perspective-origin: 67% 40%;
+    }
+
+    50% {
+        perspective-origin: 67% 60%;
+    }
+
+    75% {
+        perspective-origin: 33% 60%;
+    }
+}
+
+main::before {
+    content: "";
+    display: block;
+    width: 1em;
+    height: 1em;
+    background: currentColor;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin: -0.5em -0.5em;
+    box-shadow: 0 0 1em 1em;
+    z-index: 5;
+    animation: end 6s ease-in-out infinite;
+}
+
+@keyframes end {
+    from, to {
+        top: 40%;
+        left: 33%;
+    }
+
+    25% {
+        top: 40%;
+        left: 67%;
+    }
+
+    50% {
+        top: 60%;
+        left: 67%;
+    }
+
+    75% {
+        top: 60%;
+        left: 33%;
+    }
+}
+
+main div {
+    position: absolute;
+}
+
+.top {
+    width: 100%;
+    height: calc(20em * 6);
+    top: 0;
+    left: 0;
+    background: conic-gradient(rgb(3, 3, 3) 25%, rgb(255, 255, 255) 0 50%, rgb(3, 3, 3) 0 75%, rgb(255, 255, 255) 0) 0 0/calc(20em * 0.4) calc(20em * 0.4);
+    transform-origin: 0 0;
+    transform: rotateX(-90deg);
+    animation: top 0.5s linear infinite;
+}
+@keyframes top {
+    to{
+        transform: rotateX(-90deg) translateY(-120px);
+    }
+}
+.right{
+    width: calc(20em * 6);
+    height: 100%;
+    background: conic-gradient(rgb(3, 3, 3) 25%, rgb(255, 255, 255) 0 50%, rgb(3, 3, 3) 0 75%, rgb(255, 255, 255) 0) 0 0/calc(20em * 0.4) calc(20em * 0.4);
+    right: 0;
+    bottom: 0;
+    transform: rotateY(-90deg);
+    transform-origin: 100% 100%;
+    animation: right 0.5s linear infinite;
+}
+@keyframes right {
+    to{
+        transform: rotateY(-90deg) translateX(128px);
+    }
+}
+.bottom {
+    width: 100%;
+    height: calc(20em * 6);
+    right: 0;
+    bottom: 0;
+    background: conic-gradient(rgb(3, 3, 3) 25%, rgb(255, 255, 255) 0 50%, rgb(3, 3, 3) 0 75%, rgb(255, 255, 255) 0) 0 0/calc(20em * 0.4) calc(20em * 0.4);
+    transform-origin: 100% 100%;
+    transform: rotateX(90deg);
+    animation: bottom 0.5s linear infinite;
+}
+@keyframes bottom {
+    to{
+        transform: rotateX(90deg) translateY(128px);
+    }
+}
+.left{
+    width: calc(20em * 6);
+    height: 100%;
+    background: conic-gradient(rgb(3, 3, 3) 25%, rgb(255, 255, 255) 0 50%, rgb(3, 3, 3) 0 75%, rgb(255, 255, 255) 0) 0 0/calc(20em * 0.4) calc(20em * 0.4);
+    left: 0;
+    top: 0;
+    transform: rotateY(90deg);
+    transform-origin: 0 0;
+    animation: left 0.5s linear infinite;
+}
+@keyframes left {
+    to{
+        transform: rotateY(90deg) translateX(-128px);
+    }
+}
